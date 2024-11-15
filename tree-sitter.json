@@ -1,0 +1,12 @@
+{
+  "grammars": [
+    {
+      "name": "asa",
+      "scope": "source.asa",
+      "path": ".",
+      "file-types": [ "asa" ],
+      "highlights": "queries/highlights.scm",
+      "injection-regex": "asa"
+    }
+  ]
+}
