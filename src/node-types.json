@@ -236,6 +236,10 @@
         {
           "type": "label",
           "named": true
+        },
+        {
+          "type": "single_line_comment",
+          "named": true
         }
       ]
     }
@@ -316,6 +320,11 @@
     "fields": {}
   },
   {
+    "type": "single_line_comment",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "source_file",
     "named": true,
     "fields": {},
@@ -341,6 +350,10 @@
         },
         {
           "type": "label",
+          "named": true
+        },
+        {
+          "type": "single_line_comment",
           "named": true
         }
       ]
@@ -417,6 +430,10 @@
         }
       ]
     }
+  },
+  {
+    "type": "//",
+    "named": false
   },
   {
     "type": ":",

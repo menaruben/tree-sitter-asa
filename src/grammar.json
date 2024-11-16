@@ -30,6 +30,10 @@
         {
           "type": "SYMBOL",
           "name": "import"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "single_line_comment"
         }
       ]
     },
@@ -561,6 +565,19 @@
         {
           "type": "STRING",
           "value": "false"
+        }
+      ]
+    },
+    "single_line_comment": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "//"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[^\\n]*"
         }
       ]
     }

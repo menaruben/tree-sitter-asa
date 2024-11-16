@@ -3,6 +3,14 @@
 ; Keywords
 (function_def "begin") @keyword
 (function_def "end")   @keyword
+(goto (identifier) @keyword)
+
+(label (identifier) @label)
+
+(ifgoto 
+  (integer) (identifier) @keyword)
+
+(import (string) @keyword)
 
 ; Instructions
 (instruction (push))      @function.builtin
@@ -24,16 +32,6 @@
 (instruction (call))      @function.builtin
 (instruction (gettype))   @function.builtin
 
-
-(goto (identifier) @keyword)
-
-(label (identifier) @label)
-
-(ifgoto 
-  (integer) (identifier) @keyword)
-
-(import (string) @keyword)
-
 ; Identifiers
 (identifier) @variable
 
@@ -45,3 +43,6 @@
 (val_or_id (val (double))     @numeric.float)
 (val_or_id (val (biginteger)) @numeric.integer)
 (val_or_id (val (char))       @character)
+
+; comments
+(single_line_comment) @comment

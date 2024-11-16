@@ -13,6 +13,7 @@ module.exports = grammar({
       $.label,
       $.ifgoto,
       $.import,
+      $.single_line_comment // get ignored
     ),
 
     function_def: $ => seq(
@@ -92,6 +93,8 @@ module.exports = grammar({
     biginteger: $ => /\d+bi/,
     string: $ => /"[^"]*"/,
     char: $ => /'[^']'/,
-    boolean: $ => choice('true', 'false')
+    boolean: $ => choice('true', 'false'),
+
+    single_line_comment: $ => seq('//', /[^\n]*/)
   }
 });
