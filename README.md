@@ -19,5 +19,5 @@ name = "asa"
 # make sure to change the rev to the latest commit
 source = { git = "https://github.com/menaruben/tree-sitter-asa", rev = "3c096cec86fc43b55f84e5076c2749e481a76a93"}
 ```
-
+Afterwards run the `hx --grammar fetch` and `hx --grammar build` commands.
 As of now, I only have a `highlights.scm` but with asa evolving I will make sure to keep this repo up to date and add more queries. :)
