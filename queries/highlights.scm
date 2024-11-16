@@ -4,16 +4,27 @@
 (function_def "begin") @keyword
 (function_def "end")   @keyword
 
-(var_def (identifier) (val) @keyword)
+(var_def 
+  "var" @keyword
+  (identifier) @variable
+  (val))
 
-(goto (identifier) @keyword)
+(goto
+  "goto" @keyword 
+  (identifier) @variable)
 
-(label (identifier) @label)
+(label 
+  "label" @keyword
+  (identifier) @variable)
 
 (ifgoto 
-  (integer) (identifier) @keyword)
+  "ifgoto" @keyword
+  (integer) @numeric.integer 
+  (identifier) @variable)
 
-(import (string) @keyword)
+(import
+  "import" @keyword 
+  (string) @string)
 
 ; Instructions
 (instruction (push))      @function.builtin
@@ -46,6 +57,7 @@
 (val_or_id (val (double))     @numeric.float)
 (val_or_id (val (biginteger)) @numeric.integer)
 (val_or_id (val (char))       @character)
+(val_or_id (identifier) @variable)
 
 ; comments
 (single_line_comment) @comment
