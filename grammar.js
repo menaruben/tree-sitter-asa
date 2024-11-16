@@ -47,7 +47,8 @@ module.exports = grammar({
       $.increment,
       $.decrement,
       $.call,
-      $.gettype
+      $.gettype,
+      $.var_def
     ),
     
     show: $ => seq("show", ";"),
@@ -68,6 +69,7 @@ module.exports = grammar({
     decrement: $ => seq("decr", ";"),
     call: $ => seq("call", $.identifier, ";"),
     gettype: $ => seq("type", ";"),
+    var_def: $ => seq("var", $.identifier, $.val, ";"),
 
     val_or_id: $ => choice(
       $.identifier,

@@ -3,6 +3,9 @@
 ; Keywords
 (function_def "begin") @keyword
 (function_def "end")   @keyword
+
+(var_def (identifier) (val) @keyword)
+
 (goto (identifier) @keyword)
 
 (label (identifier) @label)

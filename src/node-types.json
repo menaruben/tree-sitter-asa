@@ -201,6 +201,10 @@
         {
           "type": "sub",
           "named": true
+        },
+        {
+          "type": "var_def",
+          "named": true
         }
       ]
     }
@@ -432,6 +436,25 @@
     }
   },
   {
+    "type": "var_def",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "val",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "//",
     "named": false
   },
@@ -577,6 +600,10 @@
   },
   {
     "type": "type",
+    "named": false
+  },
+  {
+    "type": "var",
     "named": false
   }
 ]
