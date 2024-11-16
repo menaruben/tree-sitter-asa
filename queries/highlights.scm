@@ -1,55 +1,47 @@
 ; highlights.scm
 
-; Function definitions
-[
-  (function_definition
-    name: (identifier) @function
-  )
-]
+; Keywords
+(function_def "begin") @keyword
+(function_def "end")   @keyword
 
 ; Instructions
-[
-  (instruction
-    (push) @keyword
-    (pop) @keyword
-    (add) @keyword
-    (sub) @keyword
-    (mul) @keyword
-    (div) @keyword
-    (lshift) @keyword
-    (rshift) @keyword
-    (cmp) @keyword
-    (call) @keyword
-    (show) @keyword
-    (print) @keyword
-    (println) @keyword
-    (type) @keyword
-    (incr) @keyword
-    (decr) @keyword
-    (import) @keyword
-  )
-]
+(instruction (push))      @function.builtin
+(instruction (pop))       @function.builtin
+(instruction (show))      @function.builtin
+(instruction (str))       @function.builtin
+(instruction (print))     @function.builtin
+(instruction (println))   @function.builtin
+(instruction (add))       @function.builtin
+(instruction (sub))       @function.builtin
+(instruction (mul))       @function.builtin
+(instruction (div))       @function.builtin
+(instruction (lshift))    @function.builtin
+(instruction (rshift))    @function.builtin
+(instruction (cmp))       @function.builtin
+(instruction (halt))      @function.builtin
+(instruction (increment)) @function.builtin
+(instruction (decrement)) @function.builtin
+(instruction (call))      @function.builtin
+(instruction (gettype))   @function.builtin
 
-; Labels and Goto
-[
-  (label) @label
-  (goto) @keyword
-  (ifgoto) @keyword
-]
+
+(goto (identifier) @keyword)
+
+(label (identifier) @label)
+
+(ifgoto 
+  (integer) (identifier) @keyword)
+
+(import (string) @keyword)
+
+; Identifiers
+(identifier) @variable
 
 ; Values
-[
-  (integer) @number
-  (float) @number
-  (double) @number
-  (bigdouble) @number
-  (biginteger) @number
-  (string) @string
-  (char) @character
-  (boolean) @boolean
-]
-
-; Comments
-[
-  (comment) @comment
-]
+(val_or_id (val (integer))    @numeric.integer)
+(val_or_id (val (string))     @string)
+(val_or_id (val (boolean))    @boolean)
+(val_or_id (val (float))      @numeric.float)
+(val_or_id (val (double))     @numeric.float)
+(val_or_id (val (biginteger)) @numeric.integer)
+(val_or_id (val (char))       @character)

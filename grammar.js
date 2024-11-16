@@ -8,23 +8,31 @@ module.exports = grammar({
     source_file: $ => repeat($._statement),
 
     _statement: $ => choice(
-      $.function_definition,
-      $.instruction,
-      $.label,
+      $.function_def,
       $.goto,
+      $.label,
       $.ifgoto,
-      $.halt
+      $.import,
     ),
 
-    function_definition: $ => seq(
-      'begin',
-      $.identifier,
-      ':',
-      repeat($._statement),
+    function_def: $ => seq(
+      'begin', $.identifier, ':',
+      repeat($.instruction_or_statement),
       'end'
     ),
+    goto: $ => seq("goto", $.identifier, ";"),
+    label: $ => seq("label", $.identifier, ";"),
+    ifgoto: $ => seq("ifgoto", $.integer, $.identifier, ";"),
+    import: $ => seq("import", $.string, ";"),
+
+    instruction_or_statement: $ => choice(
+      $.instruction, $._statement),
 
     instruction: $ => choice(
+      $.show,
+      $.str,
+      $.print,
+      $.println,
       $.push,
       $.pop,
       $.add,
@@ -34,40 +42,38 @@ module.exports = grammar({
       $.lshift,
       $.rshift,
       $.cmp,
+      $.halt,
+      $.increment,
+      $.decrement,
       $.call,
-      $.show,
-      $.print,
-      $.println,
-      $.type,
-      $.incr,
-      $.decr,
-      $.import
+      $.gettype
+    ),
+    
+    show: $ => seq("show", ";"),
+    str: $ => seq("str", ";"),
+    print: $ => seq("print", ";"),
+    println: $ => seq("println", ";"),
+    push: $ => seq("push", $.val_or_id, ";"),
+    pop: $ => seq("pop", $.identifier, ";"),
+    add: $ => seq("add", ";"),
+    sub: $ => seq("sub", ";"),
+    mul: $ => seq("mul", ";"),
+    div: $ => seq("div", ";"),
+    lshift: $ => seq("lshift", ";"),
+    rshift: $ => seq("rshift", ";"),
+    cmp: $ => seq("cmp", ";"),
+    halt: $ => seq("halt", ";"),
+    increment: $ => seq("incr", ";"),
+    decrement: $ => seq("decr", ";"),
+    call: $ => seq("call", $.identifier, ";"),
+    gettype: $ => seq("type", ";"),
+
+    val_or_id: $ => choice(
+      $.identifier,
+      $.val
     ),
 
-    push: $ => seq('push', $._value, ';'),
-    pop: $ => seq('pop', $.identifier, ';'),
-    add: $ => seq('add', ';'),
-    sub: $ => seq('sub', ';'),
-    mul: $ => seq('mul', ';'),
-    div: $ => seq('div', ';'),
-    lshift: $ => seq('lshift', ';'),
-    rshift: $ => seq('rshift', ';'),
-    cmp: $ => seq('cmp', ';'),
-    call: $ => seq('call', $.identifier, ';'),
-    show: $ => seq('show', ';'),
-    print: $ => seq('print', ';'),
-    println: $ => seq('println', ';'),
-    type: $ => seq('type', ';'),
-    incr: $ => seq('incr', ';'),
-    decr: $ => seq('decr', ';'),
-    import: $ => seq('import', $.string, ';'),
-
-    label: $ => seq('label', $.identifier, ';'),
-    goto: $ => seq('goto', $.identifier, ';'),
-    ifgoto: $ => seq('ifgoto', $.cmpint, $.identifier, ';'),
-    halt: $ => seq('halt', ';'),
-
-    _value: $ => choice(
+    val: $ => choice(
       $.integer,
       $.float,
       $.double,
@@ -77,9 +83,7 @@ module.exports = grammar({
       $.char,
       $.boolean
     ),
-
-    cmpint: $ => choice('-1', '0', '1'),
-
+    
     identifier: $ => /[a-zA-Z_]\w*(\/\w+)*\??/,
     integer: $ => /\d+/,
     float: $ => /\d+\.\d+f/,
