@@ -1,0 +1,3 @@
+begin main:
+	push "Hello World!"; show; println;
+end
