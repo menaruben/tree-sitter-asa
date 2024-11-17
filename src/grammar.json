@@ -155,6 +155,10 @@
       "members": [
         {
           "type": "SYMBOL",
+          "name": "raise"
+        },
+        {
+          "type": "SYMBOL",
           "name": "show"
         },
         {
@@ -232,6 +236,19 @@
         {
           "type": "SYMBOL",
           "name": "var_def"
+        }
+      ]
+    },
+    "raise": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "raise"
+        },
+        {
+          "type": "STRING",
+          "value": ";"
         }
       ]
     },

@@ -28,7 +28,7 @@
 
 ; Instructions
 
-
+(instruction (raise))     @function.builtin
 (instruction (push_id))   @function.builtin
 (instruction (push_val))  @function.builtin
 (instruction (pop))       @function.builtin

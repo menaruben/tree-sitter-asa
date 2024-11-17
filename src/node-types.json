@@ -191,6 +191,10 @@
           "named": true
         },
         {
+          "type": "raise",
+          "named": true
+        },
+        {
           "type": "rshift",
           "named": true
         },
@@ -331,6 +335,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "raise",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "rshift",
@@ -572,6 +581,10 @@
   },
   {
     "type": "push",
+    "named": false
+  },
+  {
+    "type": "raise",
     "named": false
   },
   {

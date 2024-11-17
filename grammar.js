@@ -30,6 +30,7 @@ module.exports = grammar({
       $.instruction, $._statement),
 
     instruction: $ => choice(
+      $.raise,
       $.show,
       $.str,
       $.print,
@@ -52,6 +53,7 @@ module.exports = grammar({
       $.var_def
     ),
     
+    raise: $ => seq("raise", ";"),
     show: $ => seq("show", ";"),
     str: $ => seq("str", ";"),
     print: $ => seq("print", ";"),
