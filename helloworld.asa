@@ -1,3 +1,7 @@
 begin main:
 	push "Hello World!"; show; println;
+
+	push 1;
+	push 10.0f;
+	push x;
 end

@@ -27,7 +27,10 @@
   (string) @string)
 
 ; Instructions
-(instruction (push))      @function.builtin
+
+
+(instruction (push_id))   @function.builtin
+(instruction (push_val))  @function.builtin
 (instruction (pop))       @function.builtin
 (instruction (show))      @function.builtin
 (instruction (str))       @function.builtin
@@ -46,18 +49,22 @@
 (instruction (call))      @function.builtin
 (instruction (gettype))   @function.builtin
 
-; Identifiers
-(identifier) @variable
+; values
+(identifier)       @variable
+(val (integer))    @numeric.integer
+(val (string))     @string
+(val (boolean))    @boolean
+(val (float))      @numeric.float
+(val (double))     @numeric.float
+(val (biginteger)) @numeric.integer
+(val (bigdouble))  @numeric.float
+(val (char))       @character
 
-; Values
-(val_or_id (val (integer))    @numeric.integer)
-(val_or_id (val (string))     @string)
-(val_or_id (val (boolean))    @boolean)
-(val_or_id (val (float))      @numeric.float)
-(val_or_id (val (double))     @numeric.float)
-(val_or_id (val (biginteger)) @numeric.integer)
-(val_or_id (val (char))       @character)
-(val_or_id (identifier) @variable)
+; punctuation
+[
+  ":"
+  ";"
+] @punctuation.delimiter
 
 ; comments
 (single_line_comment) @comment

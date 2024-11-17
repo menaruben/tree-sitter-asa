@@ -34,7 +34,8 @@ module.exports = grammar({
       $.str,
       $.print,
       $.println,
-      $.push,
+      $.push_id,
+      $.push_val,
       $.pop,
       $.add,
       $.sub,
@@ -55,7 +56,8 @@ module.exports = grammar({
     str: $ => seq("str", ";"),
     print: $ => seq("print", ";"),
     println: $ => seq("println", ";"),
-    push: $ => seq("push", $.val_or_id, ";"),
+    push_id: $ => seq("push", $.identifier, ";"),
+    push_val: $ => seq("push", $.val, ";"),
     pop: $ => seq("pop", $.identifier, ";"),
     add: $ => seq("add", ";"),
     sub: $ => seq("sub", ";"),
@@ -70,11 +72,6 @@ module.exports = grammar({
     call: $ => seq("call", $.identifier, ";"),
     gettype: $ => seq("type", ";"),
     var_def: $ => seq("var", $.identifier, $.val, ";"),
-
-    val_or_id: $ => choice(
-      $.identifier,
-      $.val
-    ),
 
     val: $ => choice(
       $.integer,
