@@ -5,31 +5,15 @@ module.exports = grammar({
   name: 'asa',
 
   rules: {
-    source_file: $ => repeat($._statement),
+    source_file: $ => repeat($.instruction),
 
-    _statement: $ => choice(
+    instruction: $ => choice(
       $.function_def,
       $.goto,
       $.label,
       $.ifgoto,
       $.import,
-      $.single_line_comment // get ignored
-    ),
-
-    function_def: $ => seq(
-      'begin', $.identifier, ':',
-      repeat($.instruction_or_statement),
-      'end'
-    ),
-    goto: $ => seq("goto", $.identifier, ";"),
-    label: $ => seq("label", $.identifier, ";"),
-    ifgoto: $ => seq("ifgoto", $.integer, $.identifier, ";"),
-    import: $ => seq("import", $.string, ";"),
-
-    instruction_or_statement: $ => choice(
-      $.instruction, $._statement),
-
-    instruction: $ => choice(
+      $.single_line_comment, // get ignored
       $.raise,
       $.show,
       $.str,
@@ -51,7 +35,16 @@ module.exports = grammar({
       $.gettype,
       $.var_def
     ),
-    
+
+    function_def: $ => seq(
+      'begin', $.identifier, ':',
+      repeat($.instruction),
+      'end'
+    ),
+    goto: $ => seq("goto", $.identifier, ";"),
+    label: $ => seq("label", $.identifier, ";"),
+    ifgoto: $ => seq("ifgoto", $.integer, $.identifier, ";"),
+    import: $ => seq("import", $.string, ";"),
     raise: $ => seq("raise", ";"),
     show: $ => seq("show", ";"),
     str: $ => seq("str", ";"),

@@ -1,7 +1,7 @@
 ; highlights.scm
 
-; Keywords
-(function_def "begin") @keyword
+; Keywords / Instructions
+(function_def "begin") @keyword.function
 (function_def "end")   @keyword
 
 (var_def 
@@ -26,26 +26,26 @@
   "import" @keyword 
   (string) @string)
 
-; Instructions
-(instruction (raise))     @function.builtin
-(instruction (push))     @function.builtin
-(instruction (pop))       @function.builtin
-(instruction (show))      @function.builtin
-(instruction (str))       @function.builtin
-(instruction (print))     @function.builtin
-(instruction (println))   @function.builtin
-(instruction (add))       @function.builtin
-(instruction (sub))       @function.builtin
-(instruction (mul))       @function.builtin
-(instruction (div))       @function.builtin
-(instruction (lshift))    @function.builtin
-(instruction (rshift))    @function.builtin
-(instruction (cmp))       @function.builtin
-(instruction (halt))      @function.builtin
-(instruction (increment)) @function.builtin
-(instruction (decrement)) @function.builtin
-(instruction (call))      @function.builtin
-(instruction (gettype))   @function.builtin
+(raise) @keyword
+(show) @keyword
+(halt) @keyword
+
+(push) @function.builtin 
+(pop) @function.builtin
+(str) @function.builtin
+(print) @function.builtin
+(println) @function.builtin
+(add) @function.builtin
+(sub) @function.builtin
+(mul) @function.builtin
+(div) @function.builtin
+(lshift) @function.builtin
+(rshift) @function.builtin
+(cmp) @function.builtin
+(increment) @function.builtin
+(decrement) @function.builtin
+(call) @function.builtin
+(gettype) @function.builtin
 
 ; values
 (identifier)       @variable
