@@ -175,11 +175,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "push_id"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "push_val"
+          "name": "push"
         },
         {
           "type": "SYMBOL",
@@ -304,7 +300,7 @@
         }
       ]
     },
-    "push_id": {
+    "push": {
       "type": "SEQ",
       "members": [
         {
@@ -312,25 +308,17 @@
           "value": "push"
         },
         {
-          "type": "SYMBOL",
-          "name": "identifier"
-        },
-        {
-          "type": "STRING",
-          "value": ";"
-        }
-      ]
-    },
-    "push_val": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "push"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "val"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "identifier"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "val"
+            }
+          ]
         },
         {
           "type": "STRING",
@@ -467,6 +455,10 @@
           "value": "incr"
         },
         {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
           "type": "STRING",
           "value": ";"
         }
@@ -478,6 +470,10 @@
         {
           "type": "STRING",
           "value": "decr"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
         },
         {
           "type": "STRING",

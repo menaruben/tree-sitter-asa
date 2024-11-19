@@ -32,7 +32,17 @@
   {
     "type": "decrement",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "div",
@@ -120,7 +130,17 @@
   {
     "type": "increment",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "instruction",
@@ -183,11 +203,7 @@
           "named": true
         },
         {
-          "type": "push_id",
-          "named": true
-        },
-        {
-          "type": "push_val",
+          "type": "push",
           "named": true
         },
         {
@@ -307,7 +323,7 @@
     "fields": {}
   },
   {
-    "type": "push_id",
+    "type": "push",
     "named": true,
     "fields": {},
     "children": {
@@ -317,18 +333,7 @@
         {
           "type": "identifier",
           "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "push_val",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
+        },
         {
           "type": "val",
           "named": true

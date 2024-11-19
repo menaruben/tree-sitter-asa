@@ -27,10 +27,8 @@
   (string) @string)
 
 ; Instructions
-
 (instruction (raise))     @function.builtin
-(instruction (push_id))   @function.builtin
-(instruction (push_val))  @function.builtin
+(instruction (push))     @function.builtin
 (instruction (pop))       @function.builtin
 (instruction (show))      @function.builtin
 (instruction (str))       @function.builtin
