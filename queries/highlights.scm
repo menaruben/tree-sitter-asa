@@ -27,25 +27,25 @@
   (string) @string)
 
 (raise) @keyword
-(show) @keyword
-(halt) @keyword
+(show)  @keyword
+(halt)  @keyword
 
-(push) @function.builtin 
-(pop) @function.builtin
-(str) @function.builtin
-(print) @function.builtin
-(println) @function.builtin
-(add) @function.builtin
-(sub) @function.builtin
-(mul) @function.builtin
-(div) @function.builtin
-(lshift) @function.builtin
-(rshift) @function.builtin
-(cmp) @function.builtin
+(push)      @function.builtin
+(pop)       @function.builtin
+(str)       @function.builtin
+(print)     @function.builtin
+(println)   @function.builtin
+(add)       @function.builtin
+(sub)       @function.builtin
+(mul)       @function.builtin
+(div)       @function.builtin
+(lshift)    @function.builtin
+(rshift)    @function.builtin
+(cmp)       @function.builtin
 (increment) @function.builtin
 (decrement) @function.builtin
-(call) @function.builtin
-(gettype) @function.builtin
+(call)      @function.builtin
+(gettype)   @function.builtin
 
 ; values
 (identifier)       @variable
