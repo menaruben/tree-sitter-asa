@@ -450,10 +450,6 @@
     "named": false
   },
   {
-    "type": "begin",
-    "named": false
-  },
-  {
     "type": "bigdouble",
     "named": true
   },
@@ -475,6 +471,10 @@
   },
   {
     "type": "decr",
+    "named": false
+  },
+  {
+    "type": "def",
     "named": false
   },
   {

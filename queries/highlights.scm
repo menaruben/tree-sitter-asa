@@ -1,7 +1,7 @@
 ; highlights.scm
 
 ; Keywords / Instructions
-(function_def "begin") @keyword.function
+(function_def "def") @keyword.function
 (function_def "end")   @keyword
 
 (var_def 

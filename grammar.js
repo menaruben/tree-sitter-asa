@@ -37,7 +37,7 @@ module.exports = grammar({
     ),
 
     function_def: $ => seq(
-      'begin', $.identifier, ':',
+      'def', $.identifier, ':',
       repeat($.instruction),
       'end'
     ),
